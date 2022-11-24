@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import "./SingleShoppingItem.css";
 
-export default function SingleShoppingItem({ urlDetails }) {
+export default function SingleShoppingItem({ urlDetails, onAddToCart }) {
   const [itemDetails, setItemDetails] = useState({
     name: "",
     sprites: {},
     cost: "",
+    id: "",
   });
-  console.log("itemDetails:  ", itemDetails);
+  // console.log(onAddToCart);
+  console.log("itemDetails: Pommes  ", itemDetails);
   //const urlDetail = items.map((item) => item.url);
 
   // console.log("urlDetails: " + urlDetails);
@@ -17,7 +19,7 @@ export default function SingleShoppingItem({ urlDetails }) {
       try {
         const responseDetails = await fetch(urlDetails);
         const dataDetails = await responseDetails.json();
-        console.log("dataDetails: ", dataDetails);
+        // console.log("dataDetails: ", dataDetails);
         setItemDetails(dataDetails);
       } catch (error) {
         console.error("du kannst gar nichts");
@@ -29,8 +31,11 @@ export default function SingleShoppingItem({ urlDetails }) {
   return (
     <li>
       <h2>{itemDetails.name}</h2>
-      <img width="200px" height="200px" src={itemDetails.sprites?.default} />
+      <img alt="pokepommes" src={itemDetails.sprites?.default} />
       <p>Price: {itemDetails.cost}</p>{" "}
+      <button type="button" onClick={() => onAddToCart(itemDetails.id)}>
+        kaufen
+      </button>
     </li>
   );
 }
