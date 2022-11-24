@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./ShoppingItem.css";
 
 export default function ShoppingItem() {
   const url = "https://pokeapi.co/api/v2/item/";
