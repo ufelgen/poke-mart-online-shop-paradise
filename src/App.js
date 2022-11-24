@@ -1,7 +1,16 @@
 import "./App.css";
+import Header from "./components/Header/Header";
+import ShoppingItem from "./components/ShoppingItem/ShoppingItem";
 
 function App() {
-  return <h1>Hello Pokemons</h1>;
+  return (
+    <>
+      <Header />
+      <main>
+        <ShoppingItem />
+      </main>
+    </>
+  );
 }
 
 export default App;
