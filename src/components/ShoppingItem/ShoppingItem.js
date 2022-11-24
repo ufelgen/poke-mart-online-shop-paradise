@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import SingleShoppingItem from "../SingleShoppingItem/SingleShoppingItem";
 import "./ShoppingItem.css";
 
 export default function ShoppingItem() {
+  const [items, setItems] = useState([]);
+
   const url = "https://pokeapi.co/api/v2/item/";
 
-  const [items, setItems] = useState([]);
   //console.log(items);
   useEffect(() => {
     async function startFetching() {
@@ -22,8 +24,8 @@ export default function ShoppingItem() {
 
   return (
     <ul>
-      {items.map(({ name }) => (
-        <li key={name}>{name}</li>
+      {items.map(({ url }) => (
+        <SingleShoppingItem urlDetails={url} />
       ))}
     </ul>
   );
