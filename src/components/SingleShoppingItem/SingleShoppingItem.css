@@ -3,10 +3,8 @@ li {
 }
 
 li img {
-  max-width: 100%;
+  pointer-events: none;
   height: auto;
   image-rendering: pixelated;
   position: absolute;
-  bottom: -30px;
-  left: 30px;
 }

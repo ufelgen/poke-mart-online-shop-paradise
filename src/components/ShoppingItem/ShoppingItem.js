@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SingleShoppingItem from "../SingleShoppingItem/SingleShoppingItem";
 import "./ShoppingItem.css";
 
-export default function ShoppingItem() {
+export default function ShoppingItem({ onAddToCart }) {
   const [items, setItems] = useState([]);
 
   const url = "https://pokeapi.co/api/v2/item/";
@@ -24,8 +24,12 @@ export default function ShoppingItem() {
 
   return (
     <ul>
-      {items.map(({ url }) => (
-        <SingleShoppingItem urlDetails={url} />
+      {items.map(({ url, name }) => (
+        <SingleShoppingItem
+          urlDetails={url}
+          onAddToCart={onAddToCart}
+          key={name}
+        />
       ))}
     </ul>
   );
