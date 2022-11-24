@@ -1,0 +1,12 @@
+li {
+  position: relative;
+}
+
+li img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  position: absolute;
+  bottom: -30px;
+  left: 30px;
+}

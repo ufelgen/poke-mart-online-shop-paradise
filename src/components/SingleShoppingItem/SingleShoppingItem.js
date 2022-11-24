@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./SingleShoppingItem.css";
 
 export default function SingleShoppingItem({ urlDetails }) {
   const [itemDetails, setItemDetails] = useState({
@@ -28,8 +29,8 @@ export default function SingleShoppingItem({ urlDetails }) {
   return (
     <li>
       <h2>{itemDetails.name}</h2>
-      <img src={itemDetails.sprites?.default} />
-      <p>{itemDetails.cost}</p>{" "}
+      <img width="200px" height="200px" src={itemDetails.sprites?.default} />
+      <p>Price: {itemDetails.cost}</p>{" "}
     </li>
   );
 }
