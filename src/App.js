@@ -1,18 +1,23 @@
+import { useState } from "react";
 import "./App.css";
 import Cart from "./components/Cart/Cart";
 import Header from "./components/Header/Header";
 import ShoppingItem from "./components/ShoppingItem/ShoppingItem";
 
 function App() {
-  function handleAddToCart(id) {
-    console.log(id);
+  const [cart, setCart] = useState([]);
+  console.log(cart);
+
+  function handleAddToCart(id, object) {
+    // console.log(id, object);
+    setCart([object, ...cart]);
   }
 
   return (
     <>
-      <Header />
+      <Header shopName={"Poke Paradise Online Shop"} />
       <main>
-        <Cart />
+        <Cart array={cart} />
         <ShoppingItem onAddToCart={handleAddToCart} />
       </main>
     </>

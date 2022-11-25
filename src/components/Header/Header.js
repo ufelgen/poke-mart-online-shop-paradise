@@ -1,3 +1,3 @@
-export default function Header() {
-  return <h1>Poke Paradise Online Shop</h1>;
+export default function Header({ shopName }) {
+  return <h1>{shopName}</h1>;
 }
