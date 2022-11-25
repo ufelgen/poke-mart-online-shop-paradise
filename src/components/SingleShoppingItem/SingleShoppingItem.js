@@ -35,6 +35,9 @@ export default function SingleShoppingItem({ urlDetails, onAddToCart }) {
       <p>Price: {itemDetails.cost}</p>{" "}
       <button
         type="button"
+        //{(pommes === true) ? disabled : ""}
+        // disabled={false}
+        // cart array hier hin, vergleichen der itemdetails.id > button 1 anzeigen oder Button 2 disabled
         onClick={() => onAddToCart(itemDetails.id, itemDetails)}
       >
         kaufen
