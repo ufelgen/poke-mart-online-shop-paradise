@@ -9,7 +9,7 @@ export default function SingleShoppingItem({ urlDetails, onAddToCart }) {
     id: "",
   });
   // console.log(onAddToCart);
-  console.log("itemDetails: Pommes  ", itemDetails);
+  //console.log("itemDetails: Pommes  ", itemDetails);
   //const urlDetail = items.map((item) => item.url);
 
   // console.log("urlDetails: " + urlDetails);
@@ -33,7 +33,13 @@ export default function SingleShoppingItem({ urlDetails, onAddToCart }) {
       <h2>{itemDetails.name}</h2>
       <img alt="pokepommes" src={itemDetails.sprites?.default} />
       <p>Price: {itemDetails.cost}</p>{" "}
-      <button type="button" onClick={() => onAddToCart(itemDetails.id)}>
+      <button
+        type="button"
+        //{(pommes === true) ? disabled : ""}
+        // disabled={false}
+        // cart array hier hin, vergleichen der itemdetails.id > button 1 anzeigen oder Button 2 disabled
+        onClick={() => onAddToCart(itemDetails.id, itemDetails)}
+      >
         kaufen
       </button>
     </li>
