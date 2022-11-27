@@ -7,13 +7,7 @@ export default function Cart({ array }) {
           <li key={id}>
             <h2>{name}</h2>
             <img alt="pokepommes" src={sprites?.default} />
-            <p>Price: {cost}</p>{" "}
-            <button
-              type="button"
-              //  onClick={() => onDelete(id, }
-            >
-              löschen
-            </button>
+            <p>Price: {cost}</p> <button type="button">löschen</button>
           </li>
         ))}
       </ul>

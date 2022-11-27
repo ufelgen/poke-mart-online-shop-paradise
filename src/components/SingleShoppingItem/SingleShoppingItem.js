@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
 import "./SingleShoppingItem.css";
 
-export default function SingleShoppingItem({ urlDetails, onAddToCart }) {
+export default function SingleShoppingItem({
+  urlDetails,
+  onAddToCart,
+  disabled,
+  onDisabled,
+}) {
   const [itemDetails, setItemDetails] = useState({
     name: "",
     sprites: {},
     cost: "",
     id: "",
   });
-  // console.log(onAddToCart);
-  //console.log("itemDetails: Pommes  ", itemDetails);
+  // console.log("itemDetails: Pommes  ", itemDetails);
   //const urlDetail = items.map((item) => item.url);
-
+  // console.log(buttonToggle);
   // console.log("urlDetails: " + urlDetails);
 
   useEffect(() => {
@@ -19,7 +23,6 @@ export default function SingleShoppingItem({ urlDetails, onAddToCart }) {
       try {
         const responseDetails = await fetch(urlDetails);
         const dataDetails = await responseDetails.json();
-        // console.log("dataDetails: ", dataDetails);
         setItemDetails(dataDetails);
       } catch (error) {
         console.error("du kannst gar nichts");
@@ -35,10 +38,12 @@ export default function SingleShoppingItem({ urlDetails, onAddToCart }) {
       <p>Price: {itemDetails.cost}</p>{" "}
       <button
         type="button"
-        //{(pommes === true) ? disabled : ""}
-        // disabled={false}
+        disabled={disabled}
         // cart array hier hin, vergleichen der itemdetails.id > button 1 anzeigen oder Button 2 disabled
-        onClick={() => onAddToCart(itemDetails.id, itemDetails)}
+        onClick={() => {
+          onAddToCart(itemDetails.id, itemDetails);
+          onDisabled(urlDetails);
+        }}
       >
         kaufen
       </button>
