@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Cart from "./components/Cart/Cart";
+// import CartMagic from "./components/CartMagic/CartMagic";
 import Header from "./components/Header/Header";
 import ShoppingItem from "./components/ShoppingItem/ShoppingItem";
 
 function App() {
   const [cart, setCart] = useState([]);
-  console.log(cart);
 
   function handleAddToCart(id, object) {
-    // console.log(id, object);
     setCart([object, ...cart]);
   }
 
